@@ -1,4 +1,4 @@
-# Game Time Starter Kit
+# Pong
 
 To install the dependencies:
 

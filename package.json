@@ -1,7 +1,7 @@
 {
-  "name": "game-time-starter-kit",
+  "name": "Pong",
   "version": "1.0.0",
-  "description": "A starter kit for Turing School's Game Time project.",
+  "description": "A redux of the 1972 classic game, pong.",
   "main": "index.js",
   "scripts": {
     "start": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
@@ -12,12 +12,12 @@
     "type": "git",
     "url": "https://github.com/turingschool-examples/game-time-starter-kit.git"
   },
-  "author": "Steve Kinney",
+  "author": "Ryan Johnson & Jason Pilz",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/turingschool-examples/game-time-starter-kit/issues"
+    "url": "https://github.com/rjohnson4444/pong/issues"
   },
-  "homepage": "https://github.com/turingschool-examples/game-time-starter-kit",
+  "homepage": "https://github.com/rjohnson4444/pong",
   "devDependencies": {
     "babel": "^5.8.3",
     "babel-core": "^5.7.4",

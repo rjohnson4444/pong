@@ -1,5 +1,7 @@
 # Pong
 
+A redux of the classic 1972 game, Pong.
+
 To install the dependencies:
 
 ```

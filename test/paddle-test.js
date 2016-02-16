@@ -4,7 +4,7 @@ const Paddle   = require('../lib/paddle');
 describe('Paddle', function() {
   context('with default attributes', function() {
 
-    var paddle = new Paddle();
+    var paddle = new Paddle(null, 5, 5, 10, 40);
 
     it('should assign an x coordinate', function() {
       assert.equal(paddle.x, 5);

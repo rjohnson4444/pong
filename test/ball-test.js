@@ -15,7 +15,7 @@ describe('Ball', function() {
     });
 
     it('should assign a x_speed', function(){
-      assert.equal(ball.x_speed, 3);
+      assert.equal(ball.x_speed, 5);
     });
 
     it('should assign a y_speed', function(){
@@ -27,4 +27,19 @@ describe('Ball', function() {
     });
   });
 
+
+   describe('detectScore()', function() {
+     context('should', function() {
+
+        let ball = new Ball();
+
+       it('should assign an x coordinate', function() {
+         assert.equal(ball.x, 0);
+       });
+
+       it('should assign a y coordinate', function() {
+         assert.equal(ball.y, 0);
+       });
+     });
+   });
 });

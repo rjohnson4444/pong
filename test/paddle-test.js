@@ -22,42 +22,63 @@ describe('Paddle', function() {
       assert.equal(paddle.width, 10);
     });
 
-    it('should assign a x_speed', function(){
-      assert.equal(paddle.x_speed, 0);
-    });
-
     it('should assign a y_speed', function(){
       assert.equal(paddle.y_speed, 0);
     });
   });
 
-  // describe('moveUp()', function() {
-  //   context('On table', function() {
-  //
-  //       var paddle = new Paddle({});
-  //       var currentYPosition = paddle.y;
-  //
-  //       it('should move paddle up', function() {
-  //         assert.equal(paddle.y, currentYPosition);
-  //         paddle.moveUp();
-  //         assert.equal(paddle.y, currentYPosition - 1);
-  //       });
-  //
-  //     });
-  //   });
-  //
-  // describe('moveDown()', function() {
-  //   context('On table', function() {
-  //
-  //       var paddle = new Paddle ({});
-  //       var currentYPosition = paddle.y;
-  //
-  //       it('should move paddle down', function() {
-  //         assert.equal(paddle.y, currentYPosition);
-  //         paddle.moveDown();
-  //         assert.equal(paddle.y,currentYPosition + 1);
-  //       });
-  //
-  //     });
-  //   });
+   describe('move()', function() {
+     context('should', function() {
+
+         var paddle = new Paddle(null, 10, 20);
+         var currentYPosition = paddle.y;
+
+         it('move paddle up', function() {
+           assert.equal(paddle.y, currentYPosition);
+           paddle.move(-5);
+           assert.equal(paddle.y, currentYPosition - 5);
+         });
+
+         it('move paddle down', function() {
+           var currentYPosition = paddle.y;
+           assert.equal(paddle.y, currentYPosition);
+           paddle.move(5);
+           assert.equal(paddle.y, currentYPosition + 5);
+         });
+       });
+     });
+
+   describe('ifAtTop()', function() {
+     context('should', function() {
+
+         var canvas = { height: 600 }
+         var paddle = new Paddle (null, 10, -1);
+         paddle.y_speed = -10
+         var currentYspeed = paddle.y_speed;
+
+         it('stop movement of paddle', function() {
+           assert.equal(paddle.y_speed, currentYspeed);
+           paddle.ifAtTop();
+           assert.equal(paddle.y_speed, 0);
+         });
+
+       });
+     });
+
+   describe('ifAtBottom()', function() {
+     context('should', function() {
+
+         var canvas = { height: 400 }
+         var paddle = new Paddle (null, 10, 401);
+         paddle.y_speed = 10
+         var currentYspeed = paddle.y_speed;
+
+         it('stop movement of paddle', function() {
+           assert.equal(paddle.y_speed, currentYspeed);
+           paddle.ifAtBottom();
+           assert.equal(paddle.y_speed,0);
+         });
+
+       });
+     });
 });

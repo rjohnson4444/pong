@@ -3,7 +3,7 @@ const Scorekeeper = require('../lib/scorekeeper');
 const Player = require('../lib/player');
 
 describe('Scorekeeper', function(){
-    context('attribues', function() {
+    context('attribues should', function() {
       let player1_x = 0;
       let player2_x = 10;
       let player1_y = 0;
@@ -12,15 +12,15 @@ describe('Scorekeeper', function(){
       let player2 = new Player(player2_x, player2_y);
       let scorekeeper = new Scorekeeper(player1, player2);
 
-      it('should assign a player 1', function() {
+      it('assign a player 1', function() {
           assert.equal(scorekeeper.player1, player1);
       });
 
-      it('should assign a player 2', function() {
+      it('assign a player 2', function() {
           assert.equal(scorekeeper.player2, player2);
       });
 
-      it('should have a player score defalut of 0', function() {
+      it('have a player score defalut of 0', function() {
           assert.equal(scorekeeper.scores.player1, 0);
           assert.equal(scorekeeper.scores.player2, 0);
       });
@@ -37,7 +37,7 @@ describe('Scorekeeper', function(){
           let player2 = new Player(null, player2_x, player2_y);
           let scorekeeper = new Scorekeeper(player1, player2);
 
-          it('increases score of player that is not passed in by 1 point', function() {
+          it('increase score of player that is not passed in by 1 point', function() {
               assert.equal(scorekeeper.scores.player2, 0);
               assert.equal(scorekeeper.scores.player1, 0);
 
@@ -62,7 +62,7 @@ describe('Scorekeeper', function(){
               assert.equal(scorekeeper.scores.player2, 1);
           });
 
-          it('increases score of player that is not passed in when called multiple times', function() {
+          it('increase score of player that is not passed in when called multiple times', function() {
               scorekeeper.scores.player1 = 0;
               scorekeeper.scores.player2 = 0;
 
@@ -94,9 +94,12 @@ describe('Scorekeeper', function(){
               scorekeeper.increaseScore(player1);
               scorekeeper.increaseScore(player2);
               scorekeeper.increaseScore(player1);
+
               assert.equal(scorekeeper.scores.player2, 2);
               assert.equal(scorekeeper.scores.player2, 1);
+
               scorekeeper.clearScores();
+
               assert.equal(scorekeeper.scores.player1, 0);
               assert.equal(scorekeeper.scores.player2, 0);
           });

@@ -28,6 +28,81 @@ describe('Ball', function() {
   });
 
 
+   describe('detectPlayer1()', function() {
+     context('should', function() {
+
+        let ball = new Ball();
+
+       it('should assign an x coordinate', function() {
+         assert.equal(ball.x, 0);
+       });
+
+       it('should assign a y coordinate', function() {
+         assert.equal(ball.y, 0);
+       });
+     });
+   });
+
+   describe('detectPlayer2()', function() {
+     context('should', function() {
+
+        let ball = new Ball();
+
+       it('should assign an x coordinate', function() {
+         assert.equal(ball.x, 0);
+       });
+
+       it('should assign a y coordinate', function() {
+         assert.equal(ball.y, 0);
+       });
+     });
+   });
+
+   describe('adjustSpeed()', function() {
+     context('should', function() {
+
+        let ball = new Ball();
+
+       it('should assign an x coordinate', function() {
+         assert.equal(ball.x, 0);
+       });
+
+       it('should assign a y coordinate', function() {
+         assert.equal(ball.y, 0);
+       });
+     });
+   });
+
+   describe('detectCeiling()', function() {
+     context('should', function() {
+
+        let ball = new Ball();
+
+       it('should assign an x coordinate', function() {
+         assert.equal(ball.x, 0);
+       });
+
+       it('should assign a y coordinate', function() {
+         assert.equal(ball.y, 0);
+       });
+     });
+   });
+
+   describe('detectFloor()', function() {
+     context('should', function() {
+
+        let ball = new Ball();
+
+       it('should assign an x coordinate', function() {
+         assert.equal(ball.x, 0);
+       });
+
+       it('should assign a y coordinate', function() {
+         assert.equal(ball.y, 0);
+       });
+     });
+   });
+
    describe('detectScore()', function() {
      context('should', function() {
 

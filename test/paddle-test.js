@@ -51,9 +51,9 @@ describe('Paddle', function() {
    describe('ifAtTop()', function() {
      context('should', function() {
 
-         var canvas = { height: 600 }
+         var canvas = { height: 600 };
          var paddle = new Paddle (null, 10, -1);
-         paddle.y_speed = -10
+         paddle.y_speed = -10;
          var currentYspeed = paddle.y_speed;
 
          it('stop movement of paddle', function() {
@@ -68,9 +68,9 @@ describe('Paddle', function() {
    describe('ifAtBottom()', function() {
      context('should', function() {
 
-         var canvas = { height: 400 }
+         var canvas = { height: 400 };
          var paddle = new Paddle (null, 10, 401);
-         paddle.y_speed = 10
+         paddle.y_speed = 10;
          var currentYspeed = paddle.y_speed;
 
          it('stop movement of paddle', function() {

@@ -1,5 +1,5 @@
 const assert = require('chai').assert;
-const Paddle   = require('../lib/paddle');
+const Paddle = require('../lib/paddle');
 
 describe('Paddle', function() {
   context('with default attributes', function() {
@@ -51,7 +51,6 @@ describe('Paddle', function() {
    describe('ifAtTop()', function() {
      context('should', function() {
 
-         var canvas = { height: 600 };
          var paddle = new Paddle (null, 10, -1);
          paddle.y_speed = -10;
          var currentYspeed = paddle.y_speed;
@@ -68,7 +67,6 @@ describe('Paddle', function() {
    describe('ifAtBottom()', function() {
      context('should', function() {
 
-         var canvas = { height: 400 };
          var paddle = new Paddle (null, 10, 401);
          paddle.y_speed = 10;
          var currentYspeed = paddle.y_speed;

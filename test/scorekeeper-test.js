@@ -1,6 +1,6 @@
-const assert = require('chai').assert;
+const assert      = require('chai').assert;
 const Scorekeeper = require('../lib/scorekeeper');
-const Player = require('../lib/player');
+const Player      = require('../lib/player');
 
 describe('Scorekeeper', function(){
     context('attribues should', function() {

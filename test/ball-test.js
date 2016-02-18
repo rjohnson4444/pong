@@ -147,22 +147,4 @@ describe('Ball', function() {
        });
      });
    });
-
-   describe('detectScore()', function() {
-     context('should', function() {
-
-       let game = { width: 400, height: 600, scorekeeper: { scores: { player1: 0, player2: 0 } } };
-       let ball = new Ball(600, 200, null, game);
-
-       xit('detect if player 1 scores', function() {
-           debugger;
-         ball.detectScore();
-         assert.equal(ball.x, 0);
-       });
-
-       xit('detect if player 2 scores', function() {
-         assert.equal(ball.y, 0);
-       });
-     });
-   });
 });

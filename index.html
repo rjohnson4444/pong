@@ -3,26 +3,34 @@
 <head>
   <meta charset="utf-8">
   <title>Pong</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
 </head>
 <body>
 <!-- style="background: url(http://www.socwall.com/images/wallpapers/31893-2560x1439.jpg)"> -->
+  <nav style="background-color: black">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center">PONG</a>
+    </div>
+  </nav>
 
-  <div align="center" style="margin-bottom: 10px">
-      <button id="start">Start Game!</button>
-      <button id="restart">Restart Game!</button>
+  <div class="container" align="center" style="margin-bottom: 10px">
+    <button id="start" class="waves-effect waves-light btn">Start Game!</button>
+    <button id="restart" class="waves-effect waves-light btn" style="background-color: blue">Restart Game!</button>
   </div>
 
-  <div id="title" align="center">
-    <h2>Scores</h2>
-  </div>
-  <div id="scores" align="center">
-    <h2 id="player-1-score">0</h2><h2 id="player-2-score">0</h2>
+  <div class="row" style="margin-bottom: 0px">
+    <div class="col s3 offset-s3" id="scores">
+      <h4>Player 1:</h4><h4 class="left-align" id="player-1-score">0</h4>
+    </div>
+    <div class="col s3">
+      <h4 class="right-align">Player 2:</h4><h4 class="right-align" id="player-2-score">0</h4>
+    </div>
   </div>
 
   <div align="center">
     <canvas id="canvas" width="600" height="400">
   <div>
-<!-- style="background: url(http://www.socwall.com/images/wallpapers/31893-2560x1439.jpg) -->
+
   <script src="main.bundle.js"></script>
 
 </body>

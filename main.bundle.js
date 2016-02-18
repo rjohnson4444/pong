@@ -116,22 +116,34 @@
 	    this.request = request;
 	    this.width = canvas.width;
 	    this.height = canvas.height;
-	    this.player1 = new Player(context, 10, canvas.height / 2 - 40);
-	    this.player2 = new Player(context, canvas.width - 20, canvas.height / 2 - 40);
+	    this.player1 = new Player(context, 10, canvas.height / 2 - 40, this);
+	    this.player2 = new Player(context, canvas.width - 20, canvas.height / 2 - 40, this);
 	    this.ball = new Ball(this.width / 2, this.height / 2, this.context, this);
 	    this.scorekeeper = new Scorekeeper(this.player1, this.player2);
-	    this.gameObjects = [this.player1, this.ball, this.player2];
+	    this.gameObjects = [this.player1, this.player2];
 	};
+
+	// Game.prototype.collisionDetection = function () {
+	//     for (let i = 0; i < this.gameObjects.length; i++) {
+	//         let obj = gameObjects[i]
+	//         this.checkCollisionWithBall(obj);
+	//     }
+	// }
+
+	// Game.prototype.checkCollisionWithBall = function (obj) {
+	//     if obj.
+	//}
 
 	Game.prototype.render = function () {
 	    this.context.fillStyle = "#AFFFFF";
 	    this.context.fillRect(0, 0, this.width, this.height);
+	    this.ball.render();
 	    this.gameObjects.forEach(function (object) {
 	        return object.render();
 	    });
 	};
 
-	Game.prototype.moveTo = function () {
+	Game.prototype.movePlayers = function () {
 	    var moveDown = [0, 4];
 	    var moveUp = [0, -4];
 	    var moveRight = [4, 0];
@@ -160,7 +172,8 @@
 	};
 
 	Game.prototype.update = function () {
-	    this.moveTo();
+	    // this.collisionDetection();
+	    this.movePlayers();
 	    this.ball.update(this.player1.paddle, this.player2.paddle);
 	};
 
@@ -210,10 +223,11 @@
 
 	var Paddle = __webpack_require__(3);
 
-	function Player(context, x, y) {
+	function Player(context, x, y, game) {
 	    this.x = x;
 	    this.y = y;
-	    this.paddle = new Paddle(context, this.x, this.y);
+	    this.game = game;
+	    this.paddle = new Paddle(context, this.x, this.y, game);
 	}
 
 	Player.prototype.render = function () {
@@ -232,13 +246,14 @@
 
 	"use strict";
 
-	function Paddle(context, x, y) {
-	    var width = arguments.length <= 3 || arguments[3] === undefined ? 10 : arguments[3];
-	    var height = arguments.length <= 4 || arguments[4] === undefined ? 80 : arguments[4];
+	function Paddle(context, x, y, game) {
+	    var width = arguments.length <= 4 || arguments[4] === undefined ? 10 : arguments[4];
+	    var height = arguments.length <= 5 || arguments[5] === undefined ? 80 : arguments[5];
 
 	    this.context = context;
 	    this.y = y;
 	    this.x = x;
+	    this.game = game;
 	    this.width = width;
 	    this.height = height;
 	    this.y_speed = 0;
@@ -257,6 +272,7 @@
 	    this.x_speed = x;
 	    this.ifAtTop();
 	    this.ifAtBottom();
+	    this.isInBox();
 	};
 
 	Paddle.prototype.ifAtTop = function () {
@@ -267,9 +283,29 @@
 	};
 
 	Paddle.prototype.ifAtBottom = function () {
-	    if (this.y + this.height > 400) {
-	        this.y = 400 - this.height;
+	    if (this.y + this.height > this.game.height) {
+	        this.y = this.game.height - this.height;
 	        this.y_speed = 0;
+	    }
+	};
+
+	Paddle.prototype.isInBox = function () {
+	    if (this.x < this.game.width / 2) {
+	        if (this.x < this.width) {
+	            this.x = this.width;
+	            this.x_speed = 0;
+	        } else if (this.x > this.game.width / 4) {
+	            this.x = this.game.width / 4;
+	            this.x_speed = 0;
+	        }
+	    } else if (this.x > this.game.width / 2) {
+	        if (this.x > this.game.width - this.width * 2) {
+	            this.x = this.game.width - this.width * 2;
+	            this.x_speed = 0;
+	        } else if (this.x < this.game.width * 0.75) {
+	            this.x = this.game.width * 0.75;
+	            this.x_speed = 0;
+	        }
 	    }
 	};
 
@@ -324,7 +360,7 @@
 
 	Ball.prototype.detectPlayer1 = function (paddle1, left, right, top, bottom) {
 	    if (left < this.game.width / 2) {
-	        if (left < paddle1.x + 10 && top < paddle1.y + paddle1.height && bottom > paddle1.y && right < paddle1.x) {
+	        if (left < paddle1.x + 10 && top < paddle1.y + paddle1.height && bottom > paddle1.y) {
 	            this.x_speed = 3;
 	            this.y_speed += paddle1.y_speed / 2;
 	            this.x += this.x_speed;

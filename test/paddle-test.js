@@ -35,14 +35,14 @@ describe('Paddle', function() {
 
          it('move paddle up', function() {
            assert.equal(paddle.y, currentYPosition);
-           paddle.move(-5);
+           paddle.move(null, -5);
            assert.equal(paddle.y, currentYPosition - 5);
          });
 
          it('move paddle down', function() {
            var currentYPosition = paddle.y;
            assert.equal(paddle.y, currentYPosition);
-           paddle.move(5);
+           paddle.move(null, 5);
            assert.equal(paddle.y, currentYPosition + 5);
          });
        });

@@ -4,9 +4,18 @@ A redux of the classic 1972 game, Pong.
 
 ![Pong](http://g.recordit.co/UDCQfTqHi5.gif)
 
-#### Deployed Game
+## Deployed Game
 [Play Pong](https://rjohnson4444.github.io/pong/)
 
+## 2 Player Independent controls
+* Separate controls for each player, can move at same time, in both horizontal
+and vertical motions.
+
+* Player 1: `q` / `e` for horizontal motion, `w` / `s` for vertical
+
+* Player 2: `←` / `→` for horizontal motion, `↑` / `↓` for vertical motion.
+
+## Configuration
 To install the dependencies:
 
 ```
@@ -39,10 +48,4 @@ npm test
 
 ---
 
-###### 2 Player Independent controls
-* Separate controls for each player, can move at same time, in both horizontal
-and vertical motions.
-
-* Player 1: `q` / `e` for horizontal motion, `w` / `s` for vertical
-
-* Player 2: `←` / `→` for horizontal motion, `↑` / `↓` for vertical motion.
+## Enjoy!
